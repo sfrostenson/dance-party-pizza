@@ -1,0 +1,25 @@
+$mdphone: 335;
+$lgphone: 374;
+$desktop: 540;
+
+@mixin breakpoint($foo) {
+  @media only screen and (min-width: $foo + px) { @content; }
+}
+
+@mixin mdphone {
+  @include breakpoint($mdphone) {
+    @content;
+  }
+}
+
+@mixin lgphone {
+  @include breakpoint($lgphone) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @include breakpoint($desktop) {
+    @content;
+  }
+}

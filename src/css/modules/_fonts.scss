@@ -1,0 +1,41 @@
+/* ==========================================================================
+   Fonts CSS
+   ========================================================================== */
+
+@font-face {
+    font-family: 'Futura Today';
+    src: url(http://www.gannett-cdn.com/interactive-design/global/fonts/futura_today_normal.eot);
+    src: url(http://www.gannett-cdn.com/interactive-design/global/fonts/futura_today_normal.eot?#iefix) format('embedded-opentype'), url(http://www.gannett-cdn.com/interactive-design/global/fonts/futura_today_normal.woff) format('woff'), url(http://www.gannett-cdn.com/interactive-design/global/fonts/futura_today_normal.ttf) format('truetype'), url(http://www.gannett-cdn.com/interactive-design/global/fonts/futura_bold-webfont.svg#FuturaBold) format('svg');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Futura Today Light';
+    src: url(http://www.gannett-cdn.com/interactive-design/global/fonts/futura_today_light.eot);
+    src: url(http://www.gannett-cdn.com/interactive-design/global/fonts/futura_today_light.eot?#iefix) format('embedded-opentype'), url(http://www.gannett-cdn.com/interactive-design/global/fonts/futura_today_light.woff) format('woff'), url(http://www.gannett-cdn.com/interactive-design/global/fonts/futura_today_light.ttf) format('truetype'), url(http://www.gannett-cdn.com/interactive-design/global/fonts/futura_light-webfont.svg#FuturaLight) format('svg');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Futura Today DemiBold';
+    src: url(http://www.gannett-cdn.com/interactive-design/global/fonts/futura_today_demibold.eot);
+    src: url(http://www.gannett-cdn.com/interactive-design/global/fonts/futura_today_demibold.eot?#iefix) format('embedded-opentype'), url(http://www.gannett-cdn.com/interactive-design/global/fonts/futura_today_demibold.woff) format('woff'), url(http://www.gannett-cdn.com/interactive-design/global/fonts/futura_today_demibold.ttf) format('truetype'), url(http://www.gannett-cdn.com/interactive-design/global/fonts/futura_bold-webfont.svg#FuturaDemiBold) format('svg');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Futura Today Bold';
+    src: url(http://www.gannett-cdn.com/interactive-design/global/fonts/futura_today_bold.eot);
+    src: url(http://www.gannett-cdn.com/interactive-design/global/fonts/futura_today_bold.eot?#iefix) format('embedded-opentype'), url(http://www.gannett-cdn.com/interactive-design/global/fonts/futura_today_bold.woff) format('woff'), url(http://www.gannett-cdn.com/interactive-design/global/fonts/futura_today_bold.ttf) format('truetype'), url(http://www.gannett-cdn.com/interactive-design/global/fonts/futura_bold-webfont.svg#FuturaBold) format('svg');
+    font-style: normal;
+}
+
+// Font variables
+$futura: 'Futura Today', sans-serif;
+$futura-demi: 'Futura Today DemiBold', sans-serif;
+$futura-lt: 'Futura Today Light', sans-serif;
+$font-body: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+// Color variables
+$font-body-color: #474747;
+$font-footnote: #666;
