@@ -11,11 +11,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <!--STYLE SHEETS -->
-  <link rel="stylesheet" type="text/css" href="styles/main-dev.css" />
+  <link rel="stylesheet" type="text/css" href="css/main-dev.css" />
 </head>
 
 <body>
-  <p>hi!</p>
+  <audio id="audioElement" src="assets/mitski.mp3"></audio>
+  <div>
+    <button onclick="document.getElementById('audioElement').play()">Play the Audio</button>
+    <button onclick="document.getElementById('audioElement').pause()">Pause the Audio</button>
+    <button onclick="document.getElementById('audioElement').volume+=0.1">Increase Volume</button>
+    <button onclick="document.getElementById('audioElement').volume-=0.1">Decrease Volume</button>
+  </div>
 </body>
 
 <!-- EXTERNAL JS FILES -->

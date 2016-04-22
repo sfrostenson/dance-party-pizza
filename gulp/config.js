@@ -26,9 +26,9 @@ module.exports = {
   'template': {
     'src': src + '/js/templates/*.tpl'
   },
-  'images' : {
-    'src' : src + '/img/**',
-    'dest': dest + '/img'
+  'assets' : {
+    'src' : src + '/assets/**',
+    'dest': dest + '/assets'
   },
   'build': {
     'cssSrc' : dest + '/css/main-dev.css',
