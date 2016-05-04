@@ -15,14 +15,13 @@
 </head>
 
 <body>
-  <audio id="audioElement" src="assets/mitski.mp3"></audio>
-  <div>
-    <button onclick="document.getElementById('audioElement').play()">Play the Audio</button>
-    <button onclick="document.getElementById('audioElement').pause()">Pause the Audio</button>
-    <button onclick="document.getElementById('audioElement').volume+=0.1">Increase Volume</button>
-    <button onclick="document.getElementById('audioElement').volume-=0.1">Decrease Volume</button>
+  <div id="audioView">
+    <audio id="audioElement" src="assets/mitski.mp3"></audio>
+    <canvas id="audioCanvas" width="800" height="600" resize></canvas>
+    <button id="playBtn" class="button round info" type="button" name="play button">play</button>
+    <button id="pauseBtn" class="button round info" type="button" name="pause button">pause</button>
   </div>
-</body>
 
-<!-- EXTERNAL JS FILES -->
-<script src="bundled.js"></script>
+  <!-- EXTERNAL JS FILES -->
+  <script src="bundled.js"></script>
+</body>
