@@ -42,21 +42,23 @@ module.exports = Backbone.View.extend({
       opacity: 0.5
     });
     
-    // The length of the path will equal the canvas width
-    this.pathLength = $(this.canvas).width() / 100;
+    // The length of the path will equal the frequency bin count (1024)
+    this.pathLength = this.analyser.frequencyBinCount;
+    // The width of the canvas matches this number
+    $(this.canvas).width(this.pathLength);
     
-    // Add a new point to the line at every hundredth pixel
-    for (var i = 0; i < this.pathLength; i++) {
-      this.path.add(new paper.Point(i * 100, 0));
+    // Add a new point to the line at every sixty-fourth pixel
+    for (var i = 0; i < this.pathLength / 16; i++) {
+      this.path.add(new paper.Point(i * 16, 0));
     }
     
     // In order for the path to be a path, group its points and position them
-    var group = new paper.Group({
+    this.group = new paper.Group({
       children: [this.path],
       applyMatrix: false,
       strokeWidth: 20,
       strokeJoin: 'round',
-      strokeCap: 'butt',
+      strokeCap: 'round',
       pivot: this.path.position,
       position: paper.view.center
     });
@@ -70,16 +72,17 @@ module.exports = Backbone.View.extend({
     var self = this;
     this.audio.play();
     
-    // On play, get the frequencies from the analyser
-    var frequencies = new Uint8Array(this.analyser.frequencyBinCount);
+    // On play, get the frequency bin count (1024) from the analyser,
+    // divide by 16 for a more manageable number (16)
+    var frequencies = new Uint8Array((this.analyser.frequencyBinCount / 16));
     
     paper.view.onFrame = function() {
       self.analyser.getByteFrequencyData(frequencies);
 
       // Move the line as frequency changes
-      for (var i = 1; i <= self.pathLength; i++) {
-        // TO DO: better y-axis positioning
-        self.path.segments[i].point = [i * 100, -frequencies[i]];
+      for (var i = 0; i < self.pathLength / 16; i++) {
+        console.log(frequencies[i]);
+        self.path.segments[i].point = [i * 16, -frequencies[i]];
       }
       
       self.path.smooth();

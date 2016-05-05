@@ -1,5 +1,13 @@
-// Partials
-@import 'partials/base';
+body {
+  box-sizing: border-box;
+  font-size: 16px;
+}
 
-// Third Party
-@import 'vendors/overrides';
+*, *:after, *:before {
+  box-sizing: inherit;
+}
+
+canvas {
+  border: 1px solid black;
+  display: block;
+}
