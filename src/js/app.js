@@ -1,9 +1,3 @@
-/* ===================================================
-* Author: Sarah E. Frostenson
-* sarah.e.frostenson@gmail.com
-* ===================================================
-*/
-
 // Call external dependencies
 'use strict';
 
@@ -11,8 +5,14 @@ var $ = require('jquery');
 var Backbone = require('backbone');
 Backbone.$ = $;
 
-var foundation = require('foundation-sites');
+var foundation = require('foundation');
 $(document).foundation();
 
 var AudioView = require('./views/AudioView.js');
-var audioView = new AudioView();
+var AppRouter = require('./router.js');
+
+
+$(document).ready(function() {
+  var router = new AppRouter();
+  Backbone.history.start();
+});

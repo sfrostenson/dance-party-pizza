@@ -1,6 +1,4 @@
-# Gulp Template
-
-Gulp template with browserify, jQuery, bootstrap, backbone/lodash, and D3/topojson dependencies.
+# TK project name
 
 ## Dependencies
 This template uses gulp and browserify as a project scaffolding tool. To use it, you'll need node and gulp installed.
@@ -41,7 +39,9 @@ gulp build
 The `gulp build` command compresses generated js/css. Must have run the default `gulp` command at least once.
 
 
-## Possible Improvements
-1. Automatic publishing to the CDN.
-2. Add universal SASS styles.
-3. Yeoman generator: https://github.com/texastribune/generator-tt-newsapps
+## TODO
+- return straight line at pause state
+- play w/ styling line
+- make responsive
+- ability to upload mp3
+- other visualizations
