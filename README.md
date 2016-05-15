@@ -41,7 +41,14 @@ The `gulp build` command compresses generated js/css. Must have run the default 
 
 ## TODO
 - return straight line at pause state
-- play w/ styling line
+- check functionality of pause, play, upload
+  - i.e. on upload, should autoplay
+- functionality of microphone
+- style of buttons/navs
 - make responsive
-- ability to upload mp3
-- other visualizations
+- other visualization views
+
+- how can i call foundation-css locally instead of linking to CDN?
+
+## resources
+- https://lostechies.com/derickbailey/2013/09/23/getting-audio-file-information-with-htmls-file-api-and-audio-element/
