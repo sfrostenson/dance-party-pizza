@@ -25,33 +25,33 @@ module.exports = Backbone.View.extend({
     // Create a new audio context
     var AudioContext = window.AudioContext || window.webkitAudioContext;
     this.ctx = new AudioContext();
-    
+
     // this.render();
     if (!this.audio) this.useDefaultSource();
     else this.render();
   },
-  
+
   useInputSource: function(e) {
     var file = e.currentTarget.files[0];
-    
+
     var objectUrl = URL.createObjectURL(file);
     $('#emptyAudio').prop('src', objectUrl);
     this.audio = $('#emptyAudio')[0];
-    
+
     this.analyser = this.ctx.createAnalyser();
     this.src = this.ctx.createMediaElementSource(this.audio);
-    
+
     // Bind our analyser to the media element source.
     this.src.connect(this.analyser);
     this.src.connect(this.ctx.destination);
     this.render();
   },
-  
+
   useStreamSource: function() {
     var self = this;
     navigator.getUserMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia ||
                               navigator.mozGetUserMedia || navigator.msGetUserMedia);
-    
+
     if (!navigator.getUserMedia) {
       window.alert('This functionality is not supported :(');
     }
@@ -60,10 +60,10 @@ module.exports = Backbone.View.extend({
       audio: true
     }, function(stream) {
       self.src = self.ctx.createMediaStreamSource(stream);
-      
+
       // THIS DOESN'T WORK YET
       self.analyser = self.ctx.createAnalyser();
-      
+
       self.src.connect(self.analyser);
       self.src.connect(self.ctx.destination);
       self.render();
@@ -71,12 +71,12 @@ module.exports = Backbone.View.extend({
       console.log(err);
     });
   },
-  
+
   useDefaultSource: function() {
     // Pipe in the audio source and create an analyser
     this.src = this.ctx.createMediaElementSource(this.defaultAudio);
     this.analyser = this.ctx.createAnalyser();
-    
+
     // Bind our analyser to the media element source.
     this.src.connect(this.analyser);
     this.src.connect(this.ctx.destination);
@@ -93,12 +93,12 @@ module.exports = Backbone.View.extend({
       strokeColor: 'blue',
       opacity: 0.5
     });
-    
+
     this.residualPath = new paper.Path({
       strokeColor: 'blue',
       opacity: 0.25
     });
-    
+
     // The length of the path will equal the frequency bin count (1024)
     this.pathLength = this.analyser.frequencyBinCount;
     // The width of the canvas matches this number
@@ -131,26 +131,26 @@ module.exports = Backbone.View.extend({
     var audio = this.audio;
     if (audio) audio.play();
     else this.defaultAudio.play();
-    
+
     // TO DO: be able to call various animations from here
     // Bind and unbind animations as needed in this and pause function
-    
+
     // On play, get the frequency bin count (1024) from the analyser,
     // divide by 16 for a more manageable number (16)
     var frequencies = new Uint8Array(this.analyser.frequencyBinCount / 16);
 
     paper.view.onFrame = function() {
       self.analyser.getByteFrequencyData(frequencies);
-      
+
       // Move the line as frequency changes
       for (var i = 0; i < self.pathLength / 16; i++) {
         self.mainPath.segments[i].point = [i * 16, -frequencies[i]];
-        self.residualPath.segments[i].point = [i * 16, -frequencies[i] - 16];
+        self.residualPath.segments[i].point = [i * 16, frequencies[i]];
       }
-      
+
       self.mainPath.smooth();
       self.residualPath.smooth();
-    }
+    };
   },
 
   pause: function() {
@@ -158,8 +158,7 @@ module.exports = Backbone.View.extend({
     if (audio) audio.pause();
     else this.defaultAudio.pause();
 
-    paper.view.pause();
-
-    // TO DO: animate back to flat line on pause
+    // paper.view.pause();
+    // TO DO: animate back to flat line on pause correctly
   }
 });
