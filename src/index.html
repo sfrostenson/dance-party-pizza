@@ -17,19 +17,14 @@
 
 <body>
   <div id="audioView">
-    <div class="button-group">
-      <label for="audioInput" class="button">upload</label>
-      <input type="file" id="audioInput" class="show-for-sr">
-      <button id="micBtn" class="button" type="button" name="microphone button">use microphone</button>
-      <button id="defaultBtn" class="button" type="button" name="default button">use default</button>
-    </div>
+    <input type="file" class="button" id="audioInput">
     <audio id="emptyAudio"></audio>
     <audio id="audioElement" src="assets/mitski.mp3"></audio>
+    <!-- <button id="micBtn" class="button" type="button" name="microphone button">use microphone</button> -->
+    <button id="defaultBtn" class="button" type="button" name="default button">use default</button>
+    <button id="playBtn" class="button" type="button" name="play button">play</button>
+    <button id="pauseBtn" class="button" type="button" name="pause button">pause</button>
     <canvas id="audioCanvas" width="1024" height="600" resize></canvas>
-    <div class="secondary button-group">
-      <button id="playBtn" class="button" type="button" name="play button">play</button>
-      <button id="pauseBtn" class="button" type="button" name="pause button">pause</button>
-    </div>
   </div>
 
   <!-- EXTERNAL JS FILES -->
