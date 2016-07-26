@@ -90,12 +90,12 @@ module.exports = Backbone.View.extend({
 
     // Draw a new path within the canvas element
     this.mainPath = new paper.Path({
-      strokeColor: 'blue',
+      strokeColor: '#2199e8',
       opacity: 0.5
     });
 
     this.residualPath = new paper.Path({
-      strokeColor: 'blue',
+      strokeColor: '#2199e8',
       opacity: 0.25
     });
 
@@ -145,7 +145,7 @@ module.exports = Backbone.View.extend({
       // Move the line as frequency changes
       for (var i = 0; i < self.pathLength / 16; i++) {
         self.mainPath.segments[i].point = [i * 16, -frequencies[i]];
-        self.residualPath.segments[i].point = [i * 16, -frequencies[i] - 16];
+        self.residualPath.segments[i].point = [i * 16, frequencies[i]];
       }
 
       self.mainPath.smooth();

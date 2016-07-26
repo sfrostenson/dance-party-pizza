@@ -1,4 +1,7 @@
+@import "modules/variables";
+
 body {
+  background-color: $gray-light; 
   box-sizing: border-box;
   font-size: 16px;
 }
@@ -6,3 +9,23 @@ body {
 *, *:after, *:before {
   box-sizing: inherit;
 }
+
+h2 {
+  color: $gray-dark;
+}
+
+.header {
+  background-color: #2199e8;
+
+  > h1 {
+    color: white;
+    text-align: center;
+  }
+}
+
+@import "partials/base";
+@import "partials/audio-view";
+@import "partials/canvas";
+@import "partials/file-upload";
+
+@import "vendors/overrides";
