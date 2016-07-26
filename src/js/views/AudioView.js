@@ -90,12 +90,12 @@ module.exports = Backbone.View.extend({
 
     // Draw a new path within the canvas element
     this.mainPath = new paper.Path({
-      strokeColor: 'blue',
+      strokeColor: '#2199e8',
       opacity: 0.5
     });
 
     this.residualPath = new paper.Path({
-      strokeColor: 'blue',
+      strokeColor: '#2199e8',
       opacity: 0.25
     });
 

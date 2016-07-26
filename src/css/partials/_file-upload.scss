@@ -1,0 +1,22 @@
+.file-upload {
+  height: 40px;
+  overflow: hidden;
+  position: relative;
+
+  > input.file-upload__input {
+    cursor: pointer;
+    filter: alpha(opacity=0);
+    font-size: 20px;
+    margin: 0;
+    opacity: 0;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 0;    
+  }
+  
+  > label.file-upload__label {
+    color: white;
+    line-height: 14.4px;
+  }
+}
